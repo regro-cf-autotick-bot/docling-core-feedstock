@@ -16,10 +16,8 @@ build:
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
-      - validate = docling_core.utils.validate:main
-      - generate_jsonschema = docling_core.utils.generate_jsonschema:main
-      - generate_docs = docling_core.utils.generate_docs:main
       - docling-view = docling_core.cli.view:app
+      - docling-serialize = docling_core.cli.serialize:app
 
 requirements:
   host:
@@ -40,6 +38,8 @@ requirements:
     - latex2mathml >=3.77.0,<4.0.0
     - defusedxml >=0.7.1,<0.8.0
     - pydantic-settings >=2.14.0
+    - transformers >=4.34.0,<5.9.0,!=5.0.*,!=5.1.*,!=5.2.*,!=5.3.*
+    - semchunk >=2.2.0,<4.0.0
     - doclang >=0.7,<0.8
 tests:
   - python:
@@ -48,10 +48,8 @@ tests:
       pip_check: true
       python_version: ${{ python_min }}.*
   - script:
-      - validate --help
-      - generate_jsonschema --help
-      - generate_docs --help
       - docling-view --help
+      - docling-serialize --help
     requirements:
       run:
         - python ${{ python_min }}.*
