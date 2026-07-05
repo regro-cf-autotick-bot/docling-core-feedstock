@@ -1,6 +1,6 @@
 context:
   name: docling-core
-  version: 2.82.0
+  version: 2.83.0
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/docling_core-${{ version }}.tar.gz
-  sha256: 5d029cdfd5a3c01c60bbea0bf24970bf6dbf03bbca2397b71a064b8eb4c7909b
+  sha256: 65325d4a265be62ea282b343e304e73ca2bc736cba2e140fa9c2057d3aac3d15
 
 build:
   number: 0
@@ -16,10 +16,8 @@ build:
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
-      - validate = docling_core.utils.validate:main
-      - generate_jsonschema = docling_core.utils.generate_jsonschema:main
-      - generate_docs = docling_core.utils.generate_docs:main
       - docling-view = docling_core.cli.view:app
+      - docling-serialize = docling_core.cli.serialize:app
 
 requirements:
   host:
@@ -42,6 +40,7 @@ requirements:
     - pydantic-settings >=2.14.0
     - transformers >=4.34.0,<5.9.0,!=5.0.*,!=5.1.*,!=5.2.*,!=5.3.*
     - semchunk >=2.2.0,<4.0.0
+    # - doclang >=0.7,<0.8
 tests:
   - python:
       imports:
@@ -49,10 +48,8 @@ tests:
       pip_check: true
       python_version: ${{ python_min }}.*
   - script:
-      - validate --help
-      - generate_jsonschema --help
-      - generate_docs --help
       - docling-view --help
+      - docling-serialize --help
     requirements:
       run:
         - python ${{ python_min }}.*
