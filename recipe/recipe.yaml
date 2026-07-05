@@ -42,6 +42,7 @@ requirements:
     - pydantic-settings >=2.14.0
     - transformers >=4.34.0,<5.9.0,!=5.0.*,!=5.1.*,!=5.2.*,!=5.3.*
     - semchunk >=2.2.0,<4.0.0
+    - doclang >=0.7,<0.8
 tests:
   - python:
       imports:
