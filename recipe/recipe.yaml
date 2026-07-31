@@ -1,6 +1,6 @@
 context:
   name: docling-core
-  version: 2.88.0
+  version: 2.89.0
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/docling_core-${{ version }}.tar.gz
-  sha256: ffc67cb863f6f93a875dfcc3dd3ac109fff68abcadcb4c951036fae777d82796
+  sha256: 1aafa2fc55a70f1d14565e4371bef1c521aafea48e6cd660147ea64a1cc20bdb
 
 build:
   number: 0
@@ -34,12 +34,10 @@ requirements:
     - pillow >=10.0.0,<13.0.0
     - pyyaml >=5.1,<7.0.0
     - typing_extensions >=4.12.2,<5.0.0
-    - typer >=0.12.5,<0.25.0
+    - typer >=0.12.5,<0.27.0
     - latex2mathml >=3.77.0,<4.0.0
     - defusedxml >=0.7.1,<0.8.0
     - pydantic-settings >=2.14.0
-    - transformers >=4.34.0,<5.9.0,!=5.0.*,!=5.1.*,!=5.2.*,!=5.3.*
-    - semchunk >=2.2.0,<4.0.0
     - doclang >=0.7,<0.8
 tests:
   - python:
