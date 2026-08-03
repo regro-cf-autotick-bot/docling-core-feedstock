@@ -38,6 +38,8 @@ requirements:
     - latex2mathml >=3.77.0,<4.0.0
     - defusedxml >=0.7.1,<0.8.0
     - pydantic-settings >=2.14.0
+    - transformers >=4.34.0,<5.9.0,!=5.0.*,!=5.1.*,!=5.2.*,!=5.3.*
+    - semchunk >=2.2.0,<4.0.0
     - doclang >=0.7,<0.8
 tests:
   - python:
